@@ -19,3 +19,12 @@ let psPercExp;              // PSPercExp - Percentage of premium used in profit 
 let simulations;            // Simulations - Number of simulations to run
 let interest;               // Interest - Interest rate applied to calculations
 let expectedNumberOfClaims; // ExpectedNumberOfClaims - Expected number of claims in simulations
+
+// Function to log entry and exit of functions
+function logEntryExit(logType, funcName, params = {}) {
+    if (logType === 'entry') {
+        console.log(`Entering function ${funcName} with parameters:`, params);
+    } else if (logType === 'exit') {
+        console.log(`Exiting function ${funcName}`);
+    }
+}
