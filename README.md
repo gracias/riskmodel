@@ -29,12 +29,14 @@ Assumptions: Claims raised are considered genuine for the purpose of this modeli
 - Simulation logic
 
 ## Lit
-- Create function and deploy
+- Create lit action function and deploy
+- Encrypt / Decrypt data through lit action
 
 ## Ceramic
 ### Orbis
 - Get studio access
 - Operate through SDK
+- Save / fetch data from the database
 
 ### ComposeDB
 - Graph like not suited
