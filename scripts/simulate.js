@@ -1,3 +1,6 @@
+// Constants
+const Pi = Math.PI;
+
 // Variables to manage the model and simulation
 
 let portSize;               // PortSize - The size of the portfolio
