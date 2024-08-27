@@ -1,0 +1,22 @@
+{
+	"name": "riskmodel",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"dependencies": {
+		"@irys/sdk": "^0.0.4",
+		"@lit-protocol/lit-node-client": "6.4.0",
+		"dotenv": "^16.3.1",
+		"ethers": "^6.11.0",
+		"node-localstorage": "^3.0.5",
+		"siwe": "2.3.2",
+		"uint8arrays": "^3.0.0"
+	}
+}
