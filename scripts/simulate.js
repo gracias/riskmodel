@@ -137,10 +137,39 @@ function simulateClaimsCost() {
 function calculateProfitShare() {
     logEntryExit('entry', 'calculateProfitShare');
 
-    logEntryExit('exit', 'calculateProfitShare');
+    profitShare = [];
+    profit = [];
+    averagePVProfit = 0;
+    premium = portSize * finalPremRate * aveSumInsured;
+
+    for (let j = 0; j < simulations; j++) {
+        logEntryExit('entry', 'calculateProfitShare_loop', { iteration: j });
+
+        let profitAccount = psPercExp * premium - claimsCost[j];
+        profitShare[j] = profitAccount > 0 ? psPercProf * profitAccount : 0;
+        profit[j] = premium - claimsCost[j] * Math.pow(1 + interest, -0.5) - 
+            profitShare[j] * Math.pow(1 + interest, -1);
+        averagePVProfit += profit[j];
+
+        logEntryExit('exit', 'calculateProfitShare_loop', { iteration: j, profitAccount, profitShare: profitShare[j], profit: profit[j] });
+    }
+
+    averagePVProfit /= simulations;
+    premium += totalPVExpectedProfit - averagePVProfit;
+    profitShareLoading = premium / (nonProfitPremRate * portSize * aveSumInsured) - 1;
+    console.log('profitShareLoading: ', profitShareLoading);
+
+    logEntryExit('exit', 'calculateProfitShare', { averagePVProfit, profitShareLoading });
 }
 function calculatePremium() {
     logEntryExit('entry', 'calculatePremium');
+
+    nonProfitPremRate = (claimRate * (1 + netPremMargins) + perMillePremLoad) / (1 - grossPremMargins);
+    finalPremRate = nonProfitPremRate * (1 + profitShareLoading);
+
+    totalPVExpectedProfit = portSize * (nonProfitPremRate * (1 - grossPremMargins) + 
+        finalPremRate * grossPremMargins - claimRate * Math.pow(1 + interest, -0.5)) * 
+        aveSumInsured;
 
     logEntryExit('exit', 'calculatePremium');
 }
