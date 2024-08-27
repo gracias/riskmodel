@@ -41,7 +41,7 @@ function initialiseVariables() {
     logEntryExit('entry', 'initialiseVariables');
 
     // Replace these with actual input data or user inputs
-    portSize = 5;                // PortSize 
+    portSize = 200;                // PortSize 
     claimRate = 0.02;            // ClaimRate  (e.g., 2% as 0.02)
     aveSumInsured = 10000;       // AveSumInsured 
     stDevSumInsured = 2000;      // StDevSumInsured 
@@ -50,7 +50,7 @@ function initialiseVariables() {
     grossPremMargins = 0.1;      // GrossPremMargins  (e.g., 10% as 0.1)
     psPercProf = 0.5;            // PSPercProf  (e.g., 50% as 0.5)
     psPercExp = 0.9;             // PSPercExp  (e.g., 90% as 0.9)
-    simulations = 10;            // Simulations 
+    simulations = 50000;            // Simulations 
     interest = 0.03;             // Interest  (e.g., 3% as 0.03)
 
     profitShareLoading = 0;      // Initial profit share loading (calculated)
@@ -86,8 +86,50 @@ function simulateClaimNumbers() {
     logEntryExit('exit', 'simulateClaimNumbers', { expectedNumberOfClaims });
 }
 
+// Function to calculate the sum of N Log-Normal distributed variables
+function sumLogNormal(N) {
+    logEntryExit('entry', 'sumLogNormal', { N });
+
+    let LNRes = 0;
+
+    if (N === 0) return 0;
+
+    for (let i = 0; i < Math.floor(N / 2); i++) {
+        logEntryExit('entry', 'sumLogNormal_loop', { iteration: i });
+
+        let R1 = Math.max(Math.random(), 1e-16);
+        let R2 = Math.random();
+
+        let X1 = Math.sqrt(-2 * Math.log(R1)) * Math.cos(2 * Pi * R2);
+        let X2 = Math.sqrt(-2 * Math.log(R1)) * Math.sin(2 * Pi * R2);
+
+        X1 = Math.exp(X1 * logSigma + logMu);
+        X2 = Math.exp(X2 * logSigma + logMu);
+
+        LNRes += X1 + X2;
+
+        logEntryExit('exit', 'sumLogNormal_loop', { iteration: i, X1, X2, LNRes });
+    }
+
+    if (N % 2 === 1) {
+        let R1 = Math.max(Math.random(), 1e-16);
+        let R2 = Math.random();
+
+        let X1 = Math.sqrt(-2 * Math.log(R1)) * Math.cos(2 * Pi * R2);
+        X1 = Math.exp(X1 * logSigma + logMu);
+
+        LNRes += X1;
+    }
+
+    logEntryExit('exit', 'sumLogNormal', { LNRes });
+    return LNRes;
+}
+
+// Function to simulate the cost of claims using Log-Normal distribution    
 function simulateClaimsCost() {
     logEntryExit('entry', 'simulateClaimsCost');
+
+    claimsCost = numberOfClaims.map(n => sumLogNormal(n));
 
     logEntryExit('exit', 'simulateClaimsCost');
 }
