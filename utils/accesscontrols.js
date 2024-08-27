@@ -17,18 +17,3 @@ export const getAccessControlConditions = () => {
 	
 	return accessControlConditions;
 }
-
-
-//TEST 
-
-// {
-//     contractAddress: "",
-//     standardContractType: "",
-//     chain: "ethereum",
-//     method: "eth_getBalance",
-//     parameters: [":userAddress", "latest"],
-//     returnValueTest: {
-//         comparator: ">=",
-//         value: "0000000000000", // 0 ETH, so anyone can open
-//     },
-// },
