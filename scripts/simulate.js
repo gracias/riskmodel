@@ -20,6 +20,13 @@ let psPercExp;              // PSPercExp - Percentage of premium used in profit 
 let simulations;            // Simulations - Number of simulations to run
 let interest;               // Interest - Interest rate applied to calculations
 let expectedNumberOfClaims; // ExpectedNumberOfClaims - Expected number of claims in simulations
+let numberOfClaims = [];    // Array to store the number of claims in each simulation
+let claimsCost = [];        // Array to store the cost of claims in each simulation
+let premium;                // Premium - The calculated premium value
+let profitShare = [];       // Array to store the profit share for each simulation
+let profit = [];            // Array to store the profit for each simulation
+let averagePVProfit = 0;    // Average present value of profit over all simulations
+let totalPVExpectedProfit = 0; // Total present value of expected profit
 
 // Function to log entry and exit of functions
 function logEntryExit(logType, funcName, params = {}) {
@@ -33,18 +40,58 @@ function logEntryExit(logType, funcName, params = {}) {
 function initialiseVariables() {
     logEntryExit('entry', 'initialiseVariables');
 
+    // Replace these with actual input data or user inputs
+    portSize = 5;                // PortSize 
+    claimRate = 0.02;            // ClaimRate  (e.g., 2% as 0.02)
+    aveSumInsured = 10000;       // AveSumInsured 
+    stDevSumInsured = 2000;      // StDevSumInsured 
+    netPremMargins = 0.05;       // NetPremMargins  (e.g., 5% as 0.05)
+    perMillePremLoad = 0.001;    // PerMillePremLoad  (e.g., 0.1% as 0.001)
+    grossPremMargins = 0.1;      // GrossPremMargins  (e.g., 10% as 0.1)
+    psPercProf = 0.5;            // PSPercProf  (e.g., 50% as 0.5)
+    psPercExp = 0.9;             // PSPercExp  (e.g., 90% as 0.9)
+    simulations = 10;            // Simulations 
+    interest = 0.03;             // Interest  (e.g., 3% as 0.03)
+
+    profitShareLoading = 0;      // Initial profit share loading (calculated)
+    logSigma = Math.sqrt(Math.log(Math.pow(stDevSumInsured / aveSumInsured, 2) + 1));
+    logMu = Math.log(aveSumInsured) - 0.5 * Math.pow(logSigma, 2);
+
     logEntryExit('exit', 'initialiseVariables');
 }
+
+// Poisson distribution function to generate random number of claims
+function poisson(lambda) {
+    logEntryExit('entry', 'poisson', { lambda });
+
+    let L = Math.exp(-lambda);
+    let p = 1;
+    let k = 0;
+
+    do {
+        k++;
+        p *= Math.random();
+    } while (p > L);
+
+    logEntryExit('exit', 'poisson', { result: k - 1 });
+    return k - 1;
+}
+
 function simulateClaimNumbers() {
     logEntryExit('entry', 'simulateClaimNumbers');
 
-    logEntryExit('exit', 'simulateClaimNumbers');
+    expectedNumberOfClaims = portSize * claimRate;
+    numberOfClaims = Array(simulations).fill(0).map(() => poisson(expectedNumberOfClaims));
+
+    logEntryExit('exit', 'simulateClaimNumbers', { expectedNumberOfClaims });
 }
+
 function simulateClaimsCost() {
     logEntryExit('entry', 'simulateClaimsCost');
 
     logEntryExit('exit', 'simulateClaimsCost');
 }
+
 function calculateProfitShare() {
     logEntryExit('entry', 'calculateProfitShare');
 
