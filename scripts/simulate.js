@@ -1,6 +1,6 @@
 // Constants
 const Pi = Math.PI;
-const Threshold = 2;
+const Threshold = 0.003;
 
 // Variables to manage the model and simulation
 
@@ -182,18 +182,21 @@ function simulate() {
     calculatePremium();     // Calculate the initial premium
 
     // Loop until the result stabilizes (converges)
-    let count = 5;
-    while (count > Threshold) {
-        logEntryExit('entry', 'simulate_loop', { count });
+    while (Math.abs(totalPVExpectedProfit / averagePVProfit - 1) > Threshold) {
+        logEntryExit('entry', 'simulate_loop', { totalPVExpectedProfit, averagePVProfit });
         
         simulateClaimNumbers();  // Simulate the number of claims
         simulateClaimsCost();    // Simulate the cost of claims
         calculateProfitShare();  // Calculate profit share for each simulation
         calculatePremium();      // Recalculate the premium based on new values
 
-        count--;
         logEntryExit('exit', 'simulate_loop');
     }
+
+    // Output to console (later to elsewhere)
+    console.log('Number of Claims: ', numberOfClaims);
+    console.log('Claims Cost: ', claimsCost);
+    console.log('Profit Share: ', profitShare);
 
     logEntryExit('exit', 'simulate');
 }
