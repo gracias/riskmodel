@@ -9,7 +9,7 @@ export const getAccessControlConditions = () => {
             parameters: [':currentActionIpfsId'],
             returnValueTest: {
                 comparator: '=',
-                value: 'QmXFk7ycPMcHEsuXj9iC2o9n3LKn6VEBsmg2tFwA6FAC2n',
+                value: 'QmcbFX9RSBjuAf72a3b3nNMgZM6hkMj9ycc25GfjFBsEAh',
             },
         },
 	];
