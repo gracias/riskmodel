@@ -10,7 +10,7 @@ export const getAuthSig = async () => {
 	const litNodeClient = await getLitNodeClient();
 
 	let nonce = await litNodeClient.getLatestBlockhash();
-	console.log("nonce: ", nonce)
+	
 
 	// Initialize the signer
 	const wallet = new ethers.Wallet(process.env.PRIVATE_KEY);
@@ -19,10 +19,10 @@ export const getAuthSig = async () => {
 	// Craft the SIWE message
 	const domain = "localhost";
 	const origin = "https://localhost/login";
-	const statement = "This is a test statement.  You can put anything you want here.";
+	const statement = "Hello World";
 
-	// expiration time in ISO 8601 format.  This is 7 days in the future, calculated in milliseconds
-	const expirationTime = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7).toISOString();
+	// expiration time in ISO 8601 format.  This is 21 days in the future, calculated in milliseconds
+	const expirationTime = new Date(Date.now() + 1000 * 60 * 60 * 24 * 21).toISOString();
 
 	const siweMessage = new siwe.SiweMessage({
 		domain,
@@ -30,8 +30,7 @@ export const getAuthSig = async () => {
 		statement,
 		uri: origin,
 		version: "1",
-		chainId: 1,
-		// chainId: 175188,
+		chainId: process.env.chainId,
 		nonce,
 		expirationTime,
 	});
