@@ -12,7 +12,7 @@ export const getLitNodeClient = async () => {
 		alertWhenUnauthorized: true,
 		litNetwork: process.env.LIT_NETWORK, 
 		debug: true, 
-		storageProvider: new LocalStorage("./lit_storage.db"),
+		storageProvider: new LocalStorage(process.env.LIT_STORAGE),
 	});
 	await litNodeClient.connect();
 	return litNodeClient;

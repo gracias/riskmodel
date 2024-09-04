@@ -15,7 +15,7 @@ dotenv.config();
 export const getIrys = async () => {
 	const url = process.env.irysUrl;
 	const providerUrl = process.env.irysProviderUrl;
-	const token =process.env.token;
+	const token = process.env.irysToken;
 
 	const irys = new Irys({
 		url, // URL of the node you want to connect to
