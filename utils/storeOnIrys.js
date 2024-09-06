@@ -2,7 +2,7 @@
 import { getAccessControlConditions } from "./accesscontrols.js";
 import { getIrys  } from "./irys.js";
 
-export const storeOnIrys =  async (cipherText, dataToEncryptHash) => {
+export const storeOnIrys =  async (cipherText, dataToEncryptHash, owner, nominee) => {
 	const irys = await getIrys();
 
 	const dataToUpload = {
@@ -10,10 +10,16 @@ export const storeOnIrys =  async (cipherText, dataToEncryptHash) => {
 		dataToEncryptHash: dataToEncryptHash,
 		accessControlConditions: getAccessControlConditions(),
 	};
+	const tags = [
+        { name: "Content-Type", value: "application/json" },
+        { name: "application-id", value: "nebula"},
+        { name: "owner", value: owner },
+        { name: "nominee", value: nominee }
+    ];
 
 	let receipt;
 	try {
-		const tags = [{ name: "Content-Type", value: "application/json" }];
+
 		receipt = await irys.upload(JSON.stringify(dataToUpload), { tags });
 	} catch (e) {
 		console.log("Error uploading data ", e);

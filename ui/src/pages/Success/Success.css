@@ -1,0 +1,72 @@
+.NB-Success-Page {
+    padding-left: 3.125rem;
+    margin-top: 3rem;
+    padding-right: 3.125rem;
+}
+
+
+
+.NB-Success-Page .NB-Success {
+    display: flex;
+
+}
+
+.NB-Success .text {
+    text-align: left;
+}
+
+.NB-Success .text .title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    max-width: 65%;
+}
+
+.NB-Success .text .subtitle {
+    margin-top: 2rem;
+    opacity: 0.5;
+}
+
+.NB-Success .success-logo {
+    /* width: 13%; */
+    /* display: flex; */
+    /* justify-content: flex-start; */
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid #2D2C32;
+}
+
+.NB-Success .tick-icon {
+    stroke: white;
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+
+}
+
+.NB-Success .text {
+    width: 90%;
+    margin-left: 3rem;
+    letter-spacing: 0.125rem;
+}
+
+.NB-Success .success-logo__inner {
+    /* width: 75%;
+    padding-left: 1rem;
+    padding-right: 1rem; */
+    height: 7rem;
+    width: 7rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -3.5rem 0 0 -3.5rem;
+    border: 2px solid #2D2C32;
+    border-radius: 50%;
+    background: rgb(27, 90, 27);
+}
+
+.NB-Success-Details {
+    margin-top: 3.5rem;
+    display: flex;
+}

@@ -15,6 +15,13 @@ export const getLitNodeClient = async () => {
 		storageProvider: new LocalStorage(process.env.LIT_STORAGE),
 	});
 	await litNodeClient.connect();
+	console.log("connected to lit: ", litNodeClient)
 	return litNodeClient;
 }
+
+const run = async () => {
+	await getLitNodeClient()
+}
+
+run()
 

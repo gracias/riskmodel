@@ -1,0 +1,28 @@
+.NB-Claim-Steps {
+    margin-left: 1rem;
+}
+
+.NB-Claim-Steps .ant-card-head {
+    border-bottom: 2px solid #2D2C32;
+    background: linear-gradient(181.14deg, #212028 0.93%, #0F0F0F 56.18%);
+}
+
+.NB-Claim-Steps .ant-card-head-title {
+    text-align: left;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+}
+
+.NB-Claim-Steps .ant-steps-item-tail {
+    background-color: #2D2C32;
+}
+
+.NB-Claim-Steps .ant-steps-item-tail::after {
+    background-color: #2D2C32;
+}
+
+
+.NB-Claim-Steps .ant-steps-item-icon {
+    background-color: #2b2a32;
+}

@@ -1,0 +1,58 @@
+.NB-Claim-Processing-Fees,
+.NB-Claim-Processing-Success {
+    max-width: 60%;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.NB-Claim-Processing-Fees .actions {
+    align-self: end;
+    margin-top: 3rem;
+}
+
+.NB-Claim-Processing-Fees .claim-deposit {
+    margin-top: 2rem;
+}
+
+.NB-Claim-Processing-Fees .actions .mr-2 {
+    margin-right: 2rem;
+}
+
+
+
+.NB-Claim-Processing-Fees__actions__cancel,
+.NB-Claim-Processing-Fees__actions__next {
+    border: 1px solid #B48DFF;
+    box-shadow: none;
+    /* background-image: linear-gradient(90deg, #7A46F3 100%, #7A46F3 30%) !important; */
+    height: 3rem;
+    width: 10rem;
+
+}
+
+.NB-Claim-Processing-Fees__actions__next {
+    background-image: linear-gradient(270deg, #7A46F3 0%, rgba(122, 70, 243, 0.3) 100%);
+    padding: 1rem;
+
+}
+
+.NB-Claim-Processing-Fees .actions .btn-wrapper {
+    display: inline-block;
+    border-radius: 2.5rem;
+    height: 3rem;
+    width: 10rem;
+    background-image: linear-gradient(270.38deg, #B48DFF 51.45%, rgba(180, 141, 255, 0.2) 100.21%);
+
+
+}
+
+.NB-Claim-Processing-Fees__actions__next .ant-btn-icon.ant-btn-loading-icon {
+    color: #fff;
+}
+
+.NB-Claim-Processing-Fees .tracker {
+    margin-top: 2rem;
+}

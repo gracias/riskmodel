@@ -1,0 +1,11 @@
+.NB-Dashboard .page-title {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.NB-Dashboard .breadcrumbs {
+    font-size: 1rem;
+    margin-top: 1rem;
+    letter-spacing: 0.2rem;
+    opacity: 0.8;
+}

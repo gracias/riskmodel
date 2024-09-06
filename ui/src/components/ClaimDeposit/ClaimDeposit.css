@@ -1,0 +1,20 @@
+.NB-Claim-Deposit .title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.NB-Claim-Deposit h2,
+.NB-Claim-Deposit p {
+    text-align: left;
+    margin-bottom: 0;
+    margin-top: 0
+}
+
+.NB-Claim-Deposit h2 {
+    font-weight: 500;
+}
+
+.NB-Claim-Deposit p {
+    opacity: 0.5;
+    font-size: 0.75rem;
+}

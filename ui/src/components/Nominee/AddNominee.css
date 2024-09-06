@@ -1,0 +1,45 @@
+.NB-Add-Nominee {
+    margin-left: 1rem;
+
+}
+
+
+.NB-Add-Nominee .ant-card-head-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+    text-align: left;
+}
+
+.NB-Add-Nominee__fields {
+    display: flex;
+}
+
+.NB-Add-Nominee__fields .ant-select-selector,
+.NB-Add-Nominee__fields .ant-input-outlined {
+    border-color: #2D2C32 !important;
+    border-width: 2px !important;
+}
+
+.NB-Add-Nominee__relationship {
+    width: 40%;
+
+}
+
+.NB-Add-Nominee__relationship .ant-select {
+    width: 100%;
+}
+
+.NB-Add-Nominee__relationship .ant-select .ant-select-selection-placeholder,
+.NB-Add-Nominee__relationship .ant-select .ant-select-selection-item {
+    text-align: left;
+}
+
+.NB-Add-Nominee__address {
+    width: 60%;
+    margin-left: 1rem
+}
+
+.NB-Add-Nominee__address .ant-input {
+    height: 2.5rem;
+}

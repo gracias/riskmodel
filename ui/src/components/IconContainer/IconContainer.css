@@ -1,0 +1,42 @@
+.NB-Icon-Container {
+    background: linear-gradient(180deg, #393842 0%, rgba(59, 58, 64, 0.5) 100%);
+    border-radius: 50%;
+
+}
+
+.NB-Icon-Container .outer {
+    border-radius: 50%;
+    padding: 1rem;
+    position: relative;
+    background: linear-gradient(181.14deg, #323542 0.93%, #0E0E10 56.18%);
+
+
+    /* width: 10rem;
+    height: 10rem;
+    border: 2px solid #2D2C32; */
+}
+
+.NB-Icon-Container .inner-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #393842 0%, rgba(59, 58, 64, 0.5) 100%);
+
+}
+
+.NB-Icon-Container .inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 1rem;
+    border-radius: 50%;
+    background: linear-gradient(181.14deg, #323542 0.93%, #0E0E10 56.18%);
+
+
+    /* height: 7rem;
+    width: 7rem;
+    margin: -3.5rem 0 0 -3.5rem;
+    border: 2px solid #2D2C32;
+    background: rgb(27, 90, 27); */
+}

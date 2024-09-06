@@ -1,0 +1,103 @@
+.NB-Insurance-Item {
+    margin-top: 1rem;
+}
+.NB-Insurance-Item .card-style {
+    /* background-color: #1b1b20; */
+    border-radius: 1rem;
+}
+
+.NB-Insurance-Item .first {
+    border-right: 2px solid #2D2C32;
+}
+
+.NB-Insurance-Item .last {
+    border-left: 2px solid #2D2C32;
+}
+
+.NB-Insurance-Item .content-1,
+.NB-Insurance-Item .content-2,
+.NB-Insurance-Item .content-3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.NB-Insurance-Item .content-2 .row-1,
+.NB-Insurance-Item .content-2 .row-2,
+.NB-Insurance-Item .content-3 .row-1 {
+    display: flex;
+}
+
+.NB-Insurance-Item .content-1 .header {
+    display: flex;
+}
+
+.NB-Insurance-Item .content-1 .header .icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: 2px solid #2D2C32;
+    background: linear-gradient(181.14deg, #323542 0.93%, #0E0E10 56.18%);
+
+}
+
+.NB-Insurance-Item .content-1 .header .icon .hand {
+    stroke: white;
+    margin-top: 0.5rem;
+}
+
+.NB-Insurance-Item .content-1 .header .title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-left: 1rem;
+    overflow-wrap: break-word;
+}
+
+.NB-Insurance-Item .content-1 .number {
+
+    text-align: left;
+    font-size: 1.125rem;
+    letter-spacing: 0.125rem;
+    color: #B48DFF;
+    overflow-wrap: break-word;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.NB-Insurance-Item .content-2 .row-1 {
+
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #2D2C32;
+}
+
+.NB-Insurance-Item .content-2 .row-1 .sum {
+    margin-right: 1rem;
+}
+
+.NB-Insurance-Item .content-2 .row-1 .claim-status {
+    margin-left: 1rem;
+}
+
+.NB-Insurance-Item .content-2 .row-2 .nick {
+    margin-right: 1rem;
+}
+
+.NB-Insurance-Item .content-2 .row-2 .holder {
+    margin-left: 1rem;
+}
+
+.NB-Insurance-Item .content-2 .row-2,
+.NB-Insurance-Item .content-3 .row-2 {
+    margin-top: 1.5rem;
+}
+
+.NB-Insurance-Item .content-3 .row-1 {
+    padding-bottom: 2rem;
+}
+
+.NB-Insurance-Item .content-3 .row-1 .start {
+    margin-right: 1rem;
+}
+
+.NB-Insurance-Item .content-3 .row-1 .end {
+    margin-left: 1rem;
+}

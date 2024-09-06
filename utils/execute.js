@@ -68,4 +68,5 @@ const execute = async () => {
     await invokeAction(cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions)
 }
 
-execute();
+// execute();
+executeRetrieveAndDecryption("-MvO0QxdDIyZihOPv9u4YNoknl2qnsy-FabtoWCu9hA")

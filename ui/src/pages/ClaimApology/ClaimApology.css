@@ -1,0 +1,39 @@
+.NB-Claim-Apology {
+    padding-left: 3.25rem;
+    padding-right: 3.25rem;
+    margin-top: 3rem;
+}
+
+.NB-Claim-Apology .product {
+    margin-top: 2rem;
+}
+
+.NB-Claim-Apology .steps {
+    margin-top: 2rem;
+}
+
+.NB-Claim-Apology .apology-text {
+    text-align: left;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+
+.NB-Claim-Apology .actions {
+    margin-top: 3rem;
+}
+
+.NB-Claim-Apology__actions__cancel {
+    /* margin-right: 1.5rem; */
+}
+
+.NB-Claim-Apology__actions__cancel,
+.NB-Claim-Apology__actions__next {
+    border: 1px solid #B48DFF;
+    box-shadow: none;
+    /* background-image: linear-gradient(90deg, #7A46F3 100%, #7A46F3 30%) !important; */
+    height: 3rem;
+    width: 10rem;
+
+}

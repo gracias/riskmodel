@@ -1,0 +1,24 @@
+.NB-Payment .Payment-details .ant-card-body {
+    text-align: left;
+}
+
+.NB-Payment .Payment-details {
+    margin-top: 1rem;
+}
+
+.NB-Payment .Payment-details .ant-card-head-title {
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.NB-Payment .Payment-details .ant-card-head {
+    border-bottom: 2px solid #2D2C32;
+    background: linear-gradient(181.14deg, #212028 0.93%, #0F0F0F 56.18%);
+
+
+}
+
+.NB-Payment__title {
+    text-align: left;
+    font-size: 1.5rem;
+}

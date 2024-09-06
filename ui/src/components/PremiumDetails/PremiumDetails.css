@@ -1,0 +1,29 @@
+.NB-PremiumDetails {
+    width: 40%;
+    margin-left: 1rem;
+}
+
+
+.NB-PremiumDetails .card-style {
+
+    border-radius: 1rem;
+}
+
+.NB-TransactionDetails .ant-card-head-title {
+    font-size: 1.125rem;
+}
+
+.NB-PremiumDetails .ant-card-head-title,
+.NB-PremiumDetails .ant-card-body {
+    text-align: left;
+}
+
+.NB-PremiumDetails .wallet {
+    margin-top: -1rem;
+}
+
+.NB-PremiumDetails .wallet .wallet-icon {
+    fill: yellow;
+    height: 2.5rem;
+    width: 2.5rem;
+}

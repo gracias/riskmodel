@@ -1,0 +1,25 @@
+.NB-Claim-Tracker {
+    background-image: linear-gradient(180deg, #393842 0%, rgba(59, 58, 64, 0.5) 100%);
+    border-radius: 1rem;
+}
+
+.NB-Claim-Tracker .stages {
+    display: flex;
+}
+
+.NB-Claim-Tracker .stages .title {
+    width: 25%;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.NB-Claim-Tracker .stages--large-dots .ant-steps-icon-dot {
+    height: 1rem !important;
+    width: 1rem !important;
+
+}
+
+
+.NB-Claim-Tracker .stages--large-dots .ant-steps-item-tail {
+    margin-inline: 73px 0 !important;
+}
