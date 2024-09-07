@@ -8,21 +8,26 @@ import axios from 'axios';
 
 
 const Simulation = () => {
-    const [simulations, setSimulations] = useState(null)
-    const [portSize, setPortSize] = useState(null)
-    const [percentile, setPercentile] = useState(null)
+    const [simulations, setSimulations] = useState('')
+    const [portSize, setPortSize] = useState('')
+    const [percentile, setPercentile] = useState('')
     const [loading, setLoading] = useState(false)
     const [result, setResult] = useState({})
 
     const handleEvaluate = async () => {
         if (loading) return
         setLoading(true)
+        if(!portSize || !simulations || !percentile) {
+            return;
+        }
         try {
             const res = await axios.post("http://localhost:3001/simulate", {
                 simulations, portSize, percentile
             })
+           
             if (res && res.data) {
-                setResult(res.data.result)
+                const data = JSON.parse(res.data.result)
+                setResult(data)
             }
             setLoading(false)
         } catch(e) {
@@ -32,14 +37,15 @@ const Simulation = () => {
     }
 
     const handleInputChange = (key, e) => {
+        
         if (key == 'simulations') {
-            setSimulations(+e.target.value)
+            setSimulations(e.target.value)
         }
         if (key == 'portSize') {
-            setPortSize(+e.target.value)
+            setPortSize(e.target.value)
         }
         if (key == 'percentile') {
-            setPercentile(+e.target.value)
+            setPercentile(e.target.value)
         }
 
     }
@@ -59,7 +65,9 @@ const Simulation = () => {
                <Input placeholder='Percentile required' value={percentile} onChange={(e) => handleInputChange('percentile', e)} />
                </div>
                 <div className='field-container'>
-                <Button loading={loading} onClick={handleEvaluate} type="default" size="large">Evaluate</Button>
+                <Button 
+                disabled={!portSize || !simulations || !percentile}
+                loading={loading} onClick={handleEvaluate} type="default" size="large">Evaluate</Button>
                 </div>
             </Card>
             </Col>

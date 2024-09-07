@@ -23,10 +23,17 @@ const connectDb = async () => {
 connectDb();
 
 app.post("/simulate", async (req, res) => {
+   
     const { portSize, simulations, percentile } = req.body
+    if (!portSize || !simulations || !percentile) {
+        res.status(400).json({ success: false, message: 'Missing required fields'})
+    }
+    if (!Number(portSize) || !Number(simulations) || !Number(percentile)) {
+        res.status(400).json({ success: false, message: 'Pass numerical values'})
+    }
     try {
-        console.log("Calling")
-        const result = await executeAction(portSize, simulations, percentile)
+        
+        const result = await executeAction(Number(portSize), Number(simulations), Number(percentile))
         res.json({success: true, result })
     } catch(e) {
         res.json({

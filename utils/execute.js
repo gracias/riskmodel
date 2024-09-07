@@ -68,13 +68,17 @@ export const executeAction = async (portSize, simulations, percentile) => {
     const [cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions] = await retrieveFromIrys(
 		encryptedDataID,
 	);
+   
+    
 
     const res = await invokeAction(cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions, portSize, simulations, percentile)
     if (res && res.response) {
         const result = JSON.parse(res.response)
         return result
     }
+    
 }
+
 
 
 
