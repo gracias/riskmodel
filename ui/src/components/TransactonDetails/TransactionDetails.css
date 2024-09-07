@@ -1,0 +1,74 @@
+.NB-TransactionDetails {
+    width: 60%;
+}
+
+.NB-TransactionDetails .ant-card-head-title {
+    font-size: 1.125rem;
+}
+
+.NB-TransactionDetails .card-style {
+    /* background-color: #1b1b20; */
+    border-radius: 1rem;
+
+}
+
+.NB-TransactionDetails .ant-card-head-title,
+.NB-TransactionDetails .ant-card-body {
+    text-align: left;
+}
+
+.NB-TransactionDetails .NB-TransactionDetails__action {
+    text-align: right;
+}
+
+
+
+.NB-TransactionDetails .NB-TransactionDetails__action .viewpolicy,
+.NB-TransactionDetails .NB-TransactionDetails__action .dashboard {
+    box-shadow: none;
+
+    height: 3rem;
+
+}
+
+.NB-TransactionDetails__content {
+    font-size: 1rem;
+}
+
+.NB-TransactionDetails__content__row {
+    display: flex;
+    margin-top: 1rem;
+
+}
+
+.NB-TransactionDetails__content__row .col-1 {
+    opacity: 0.5;
+}
+
+.NB-TransactionDetails__content__row .col-2 {
+    cursor: pointer;
+}
+
+.NB-TransactionDetails__content__row .col-2 .dot {
+    height: 0.25rem;
+    width: 0.25rem;
+    margin-top: 0.75rem;
+    margin-right: 0.5rem;
+    background: green;
+    border-radius: 50%;
+}
+
+.NB-TransactionDetails__content__row .col-1,
+.NB-TransactionDetails__content__row .col-2 {
+    width: 50%;
+}
+
+.NB-TransactionDetails__action {
+    margin-top: 2rem;
+}
+
+.NB-TransactionDetails__action .ant-btn:hover {
+    /* background: #07060E !important; */
+    border-color: #B48DFF !important;
+    color: rgba(237, 237, 237, 0.88) !important;
+}

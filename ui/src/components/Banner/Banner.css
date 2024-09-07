@@ -1,0 +1,17 @@
+.NB-Banner {
+    padding: 2rem;
+
+    /* transform: translateY(30%); */
+    /* border: 1px solid yellow; */
+
+
+
+}
+
+
+.NB-stats {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}

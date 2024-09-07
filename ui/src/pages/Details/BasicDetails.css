@@ -1,0 +1,66 @@
+.NB-BasicDetails {
+    padding: 3.125rem;
+    margin: 0 auto;
+}
+
+.NB-Basic-Details__content {
+    min-height: 18.75rem;
+    margin-bottom: 1rem;
+}
+
+.NB-Basic-details__text {
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+}
+
+.NB-Basic-details__text--left {
+    text-align: left;
+}
+
+.NB-Basic-details__text .subtitle {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.NB-Basic-Details__content {
+    margin-top: 2rem;
+}
+
+.NB-Basic-details__actions {
+    position: relative;
+    height: 1rem;
+    /* margin-bottom: 1rem; */
+}
+
+.NB-Basic-details__actions .ant-btn {
+    position: absolute;
+}
+
+.NB-Basic-details__actions__prev {
+    right: 9rem;
+    color: #B28BFF;
+    padding: 1rem;
+
+}
+
+.NB-Basic-details__actions__next {
+    right: 0;
+    color: #EDEDED;
+
+}
+
+
+.NB-Basic-details__actions__prev,
+.NB-Basic-details__actions__next {
+
+    box-shadow: none;
+
+    height: 3rem;
+    width: 7.75rem;
+
+}
+
+.NB-Basic-details__actions__next .ant-btn-icon.ant-btn-loading-icon {
+    color: #fff;
+}

@@ -1,0 +1,20 @@
+.NB-Claim-Status-Grid .stats {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.NB-Claim-Status-Grid .table-title {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.NB-Claim-Status-Grid .table {
+    margin-top: 1rem;
+}
+
+.NB-Claim-Status-Grid .claim-stages {
+    margin-top: 1rem;
+}

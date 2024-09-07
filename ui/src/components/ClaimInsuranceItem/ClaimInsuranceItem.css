@@ -1,0 +1,38 @@
+.NB-Claim-Insurance-Item .hand-icon {
+    fill: none;
+    stroke: white;
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+}
+
+.NB-Claim-Insurance-Item .card-style {
+
+    border-radius: 1rem;
+}
+
+.NB-Claim-Insurance-Item .sum-assured {
+    display: flex;
+    flex-direction: column;
+}
+
+.NB-Claim-Insurance-Item .sum-assured {
+    background-color: #2b2a32;
+    width: 7.5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+
+.NB-Claim-Insurance-Item .sum-assured .sum-title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.NB-Claim-Insurance-Item .sum-assured .sum-amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.625rem;
+}

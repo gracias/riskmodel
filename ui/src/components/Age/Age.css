@@ -1,0 +1,13 @@
+.NB-Basic-Info__age__slider {
+    margin-top: 3rem
+}
+
+
+
+.NB-Basic-Info__age__slider .ant-slider-rail {
+    background-color: rgba(237, 237, 237, 0.35) !important;
+}
+
+.NB-Basic-Info__age {
+    width: 70%;
+}

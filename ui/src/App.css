@@ -1,0 +1,88 @@
+.ant-steps .ant-steps-item-process .ant-steps-item-icon {
+    background-color: #04da00;
+    border-color: #04DA00;
+    color: black;
+
+}
+
+.anticon.anticon-check.ant-steps-finish-icon {
+    color: #04da00;
+}
+
+.ant-steps-item-icon {
+    border-color: #04DA00;
+}
+
+.ant-steps-item.ant-steps-item-finish .ant-steps-item-icon {
+    background-color: transparent;
+    border-width: 2px;
+    border-color: #04DA00;
+
+}
+
+.ant-steps .ant-steps-item-finish .ant-steps-item-icon>.ant-steps-icon .ant-steps-icon-dot {
+    background: #04DA00;
+}
+
+.ant-steps .ant-steps-item-process .ant-steps-item-icon>.ant-steps-icon .ant-steps-icon-dot {
+    background: #4f4f53;
+}
+
+.ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
+    background: #04DA00;
+}
+
+.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    background: black;
+}
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #04DA00
+}
+
+.ant-tabs-ink-bar {
+    height: 5px;
+    background: #04DA00 !important;
+}
+
+.gradient-bg {
+    background: linear-gradient(181.14deg, #212028 0.93%, #0F0F0F 56.18%);
+    border-radius: 1rem;
+
+
+}
+
+.gradient-bg-outer {
+    border-radius: 1rem;
+    background: linear-gradient(180deg, #393842 100%, #3b3a4080 50%);
+
+
+}
+
+.btn-gradient-outer {
+
+    background: linear-gradient(270.38deg, #B48DFF 51.45%, rgba(180, 141, 255, 0.2) 100.21%);
+
+}
+
+.btn-gradient {
+    background: linear-gradient(270deg, #7A46F3 0%, rgba(122, 70, 243, 0.3) 100%);
+
+}
+
+.btn-gradient span {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+
+
+}
+
+.blur-text {
+    color: transparent;
+    text-shadow: 0 0 8px #fff;
+}
+
+.ant-modal-footer .ant-btn {
+    box-shadow: none;
+}

@@ -1,0 +1,10 @@
+.NB-Simulation-Page {
+    margin-top: 1rem;
+}
+.NB-Simulation-Page .field-container{
+    margin-top: 1rem;
+}
+
+.NB-Simulation-Page  .ant-input {
+    height: 3rem;
+}

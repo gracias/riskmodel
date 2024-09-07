@@ -1,0 +1,21 @@
+.NB-table table {
+    background: #07060E;
+}
+
+.NB-table table thead tr th {
+    background: #07060E !important;
+}
+
+
+.NB-home__eligibility-grid .ant-table-title,
+.NB-home__eligibility-grid .ant-table-footer {
+    /* background-color: #1b1b20 !important; */
+    background: linear-gradient(181.14deg, #212028 0.93%, #0F0F0F 56.18%);
+    border-bottom: 2px solid #2D2C32;
+}
+
+.NB-home__eligibility-grid .ant-table-title {
+    /* background: '#1b1b20'; */
+    background: linear-gradient(181.14deg, #212028 0.93%, #0F0F0F 56.18%);
+    border-radius: 1rem
+}

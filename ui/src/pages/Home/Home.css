@@ -1,0 +1,15 @@
+.NB-home__eligibility-grid {
+    border: 1px solid rgba(237, 237, 237, 0.25);
+    border-radius: 5px;
+    /* width: 95%; */
+    /* transform: translateY(10%); */
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.NB-home__banner {
+    transform: translateY(50%);
+    /* border: 1px solid red; */
+    margin-right: 1rem;
+}

@@ -1,0 +1,30 @@
+.NB-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #1b1b20; */
+    background: linear-gradient(180deg, #000000 50%, #222129 100%);
+
+    border-radius: 1rem;
+}
+
+.NB-Header__logo {
+    font-size: 1.75rem;
+    cursor: pointer;
+    /* font-family: Satoshi; */
+    font-weight: 900;
+    line-height: 2.32rem;
+}
+
+.NB-Header__Wallet .ant-btn {
+    border: 1px solid #B48DFF;
+    box-shadow: none;
+    /* background-image: linear-gradient(90deg, #7A46F3 100%, #7A46F3 30%) !important; */
+    height: 2.5rem;
+    width: 15rem;
+
+}
+
+.NB-Header__Wallet .ant-btn:hover {
+    background: transparent !important;
+}

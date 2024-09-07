@@ -1,0 +1,16 @@
+.NB-Content-Tile .NB-Tile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.NB-Content-Tile .NB-Tile .tag-title {
+    color: grey;
+}
+
+.NB-Content-Tile .NB-Tile .tag-val {
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5rem;
+    font-size: 1rem;
+}

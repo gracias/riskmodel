@@ -1,0 +1,19 @@
+.NB-Basic-Info__location {}
+
+.NB-Basic-Info__location .ant-select {
+    width: 50% !important;
+    height: 3.5rem !important;
+}
+
+.NB-Basic-Info__location__country {
+    display: flex;
+}
+
+.NB-Basic-Info__location__pincode {
+    margin-left: 1rem;
+    width: 40%
+}
+
+.NB-Basic-Info__location__pincode input {
+    height: 100% !important;
+}

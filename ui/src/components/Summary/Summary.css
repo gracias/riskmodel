@@ -1,0 +1,31 @@
+.NB-Summary .ant-card-head-title {
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.NB-Summary .ant-card-head {
+    border-bottom: 2px solid #2D2C32;
+    background: linear-gradient(181.14deg, #212028 0.93%, #0F0F0F 56.18%);
+
+
+}
+
+.NB-Summary .NB-Content-Tile {
+    text-align: left;
+}
+
+.NB-Summary .NB-Content-Tile .NB-Tile {
+    width: 100%;
+}
+
+/* Product */
+
+.NB-Summary .Product__summary {
+    margin-top: 2rem;
+}
+
+/* Nominee */
+
+.NB-Summary .Nominee__summary {
+    margin-top: 2rem;
+}

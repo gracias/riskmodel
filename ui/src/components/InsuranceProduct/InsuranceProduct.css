@@ -1,0 +1,132 @@
+.NB-Insurance-Product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+
+
+.NB-Insurance-Product__content {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* .NB-Insurance-Product__content__icon--outer {
+    position: relative;
+} */
+
+/* .NB-Insurance-Product__content__icon {
+    width: 25%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    border: 2px solid #2D2C32;
+    border-radius: 50%;
+} */
+
+.NB-Insurance-Product__content .hand-icon {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 16px);
+}
+
+
+.NB-Insurance-Product__content__text {
+    width: 75%;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.NB-Insurance-Product__content__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #B28BFF;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+
+}
+
+.NB-Insurance-Product__content__subtitle {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    color: #A1A0A6;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.NB-Insurance-Product__footer {
+    border-top: 2px solid #2D2C32;
+    display: flex;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.NB-Insurance-Product__sum,
+.NB-Insurance-Product__term {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #2D2C32
+}
+
+.NB-Insurance-Product__sum .tag-title,
+.NB-Insurance-Product__term .tag-title {
+    color: grey;
+}
+
+.NB-Insurance-Product__sum .tag-val,
+.NB-Insurance-Product__term .tag-val {
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5rem;
+    font-size: 1rem;
+}
+
+
+
+.NB-Insurance-Product__premium {
+    width: 30%;
+    margin-left: 1rem;
+    background-color: #2B2A32;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.NB-Insurance-Product__premium span {
+    display: block;
+
+}
+
+.NB-Insurance-Product__content__tags .ant-tag {
+    background-color: #2B2A32;
+    border-radius: 1.875rem;
+    height: 2rem;
+    padding: 0 0.75rem 0 0.75rem;
+    border-color: transparent;
+    display: inline-block;
+    margin-top: 0.5rem;
+
+}
+
+.NB-Insurance-Product__content__tags .ant-tag span {
+    display: inline-block;
+    margin-top: 0.375rem;
+    color: #EDEDED;
+    line-height: 1rem;
+    font-size: 0.75rem;
+
+}

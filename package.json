@@ -1,7 +1,32 @@
 {
-  "dependencies": {
-    "@useorbis/db-sdk": "^0.0.53-alpha",
-    "crypto": "^1.0.1",
-    "node-fetch": "^3.3.2"
-  }
+	"name": "riskmodel",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"dependencies": {
+		"@useorbis/db-sdk": "^0.0.53-alpha",
+		"crypto": "^1.0.1",
+		"node-fetch": "^3.3.2",
+		"@irys/sdk": "^0.0.4",
+		"@irys/upload": "^0.0.2",
+		"@irys/upload-ethereum": "^0.0.2",
+		"@lit-protocol/lit-node-client": "6.4.0",
+		"@sequelize/sqlite3": "^7.0.0-alpha.41",
+		"cors": "^2.8.5",
+		"dotenv": "^16.3.1",
+		"ethers": "^6.11.0",
+		"express": "^4.19.2",
+		"node-localstorage": "^3.0.5",
+		"sequelize": "^6.37.3",
+		"siwe": "2.3.2",
+		"sqlite3": "^5.1.7",
+		"uint8arrays": "^3.0.0"
+	}
 }
