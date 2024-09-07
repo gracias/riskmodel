@@ -135,3 +135,6 @@ dist
 lit_storage.db/
 sequelize.sqlite
 testencrypt.txt
+
+ **/utils/mortalityTable.js
+ **/utils/preload.js
