@@ -73,7 +73,7 @@ const AppLayout = () => {
     const contentStyle = {
         textAlign: 'center',
         minHeight: 'calc(100vh - 64px)',
-
+        paddingBottom: '1.5rem',
         color: '#fff',
         backgroundColor: token.colorBgBase
     };

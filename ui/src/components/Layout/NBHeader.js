@@ -10,7 +10,6 @@ import "./NBHeader.css";
 
 const NBHeader = () => {
 
-
     const [address, setAddress] = useState("")
     const [isCopied, setIsCopied] = useState(false)
 
@@ -88,10 +87,15 @@ const NBHeader = () => {
 
     }
 
+    const handleSimulation = () => {
+        router.navigate("/simulation")
+    }
+
     return (
         <div className='NB-Header'>
             <div onClick={handleLogoClick} className='NB-Header__logo'>Nebula</div>
             <div className='NB-Header__Wallet'>
+                <Button type='default' shape='round' size={"large"} onClick={handleSimulation}>Simulation</Button>
                 <Button style={{ border: 'none', width: '4rem', visibility: isCopied ? 'visible' : 'hidden' }}>Copied!</Button>
                 <Button onClick={handleClick} className='NB-Header__Wallet__btn' type='default' shape='round' size={"large"}>
                     {address ? (
