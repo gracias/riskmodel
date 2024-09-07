@@ -3,6 +3,8 @@ import cors from "cors"
 import { User } from "./models/insurance.model.js"
 import  { sequelize } from "./utils/dbConfig.js"
 import { connectToDb, disconnectDb } from "./utils/db.js"
+import { executeAction } from "./utils/execute.js"
+import { disConenct } from "./utils/litnode.js"
 
 const app = express()
 app.use(cors())
@@ -20,9 +22,19 @@ const connectDb = async () => {
 
 connectDb();
 
-app.get("/simulate", (_req, res) => {
-    // const { simulations, portfolio } = req.body
-    res.json({"message": "success"})
+app.post("/simulate", async (req, res) => {
+    const { portSize, simulations, percentile } = req.body
+    try {
+        console.log("Calling")
+        const result = await executeAction(portSize, simulations, percentile)
+        res.json({success: true, result })
+    } catch(e) {
+        res.json({
+            success: false,
+            message: e.message
+        })
+    }
+    
 })
 
 app.post('/policies', async (req, res) => {
@@ -67,5 +79,6 @@ app.listen(3001, () => {
 
 process.on('uncaughtException', async () => {
     await disconnectDb();
+    await disConenct();
     process.exit(1)
 })

@@ -6,17 +6,18 @@ import { retrieveFromIrys } from "./retrieveFromIrys.js";
 import { storeOnIrys } from "./storeOnIrys.js";
 import { getLitNodeClient } from "./litnode.js";
 import { getSessionSig } from "./sessionsig.js";
+import { INSURANCE_DATA } from "./insurance.js";
 
 dotenv.config();
 
 const RESOURCE_CID = process.env.RESOURCE_IPFS
 
-export const executeEncryptionAndStore = async () => {
-    const messageToEncrypt = "My secret message 009";
+export const executeEncryptionAndStore = async (messageToEncrypt) => {
+    // const messageToEncrypt = "My secret message 009";
 
 	// 1. Encrypt data
 	const [cipherText, dataToEncryptHash] = await encryptData(messageToEncrypt);
-    console.log("cipher: ", cipherText)
+  
 	// 2. Store cipherText and dataToEncryptHash on Irys
 	const encryptedDataID = await storeOnIrys(cipherText, dataToEncryptHash);
 
@@ -32,13 +33,13 @@ export const executeRetrieveAndDecryption = async (encryptedDataID) => {
 	const [cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions] = await retrieveFromIrys(
 		encryptedDataID,
 	);
-    console.log("fetched: ", cipherTextRetrieved)
+    
 	// 4. Decrypt data
 	const decryptedString = await decryptData(cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions);
 	console.log("decryptedString:", decryptedString);
 }
 
-const invokeAction = async (ciphertext, dataToEncryptHash, accessControlConditions) => {
+const invokeAction = async (ciphertext, dataToEncryptHash, accessControlConditions, portSize, simulations, percentile) => {
     try {
         const litNodeClient = await getLitNodeClient();
         const sessionSigs = await getSessionSig();
@@ -48,25 +49,32 @@ const invokeAction = async (ciphertext, dataToEncryptHash, accessControlConditio
             jsParams: {
                 accessControlConditions,
                 ciphertext,
-                dataToEncryptHash
+                dataToEncryptHash,
+                portSize, 
+                simulations, 
+                percentile
             }
         });
 
-        console.log("Ouput: ", res)
+        return res
     } catch(err) {
         console.log("Error: ", err)
     }
 }
 
-const execute = async () => {
+export const executeAction = async (portSize, simulations, percentile) => {
     const encryptedDataID = RESOURCE_CID
 
     const [cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions] = await retrieveFromIrys(
 		encryptedDataID,
 	);
 
-    await invokeAction(cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions)
+    const res = await invokeAction(cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions, portSize, simulations, percentile)
+    if (res && res.response) {
+        const result = JSON.parse(res.response)
+        return result
+    }
 }
 
-// execute();
-executeRetrieveAndDecryption("-MvO0QxdDIyZihOPv9u4YNoknl2qnsy-FabtoWCu9hA")
+
+

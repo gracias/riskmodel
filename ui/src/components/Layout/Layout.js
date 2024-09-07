@@ -12,6 +12,7 @@ import BasicDetails from '../../pages/Details/BasicDetails.js';
 import Home from '../../pages/Home/Home.js';
 import Success from '../../pages/Success/Success.js';
 import NBHeader from './NBHeader.js';
+import Simulation from '../../pages/Simulation/Simulation.js';
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
     {
         path: '/basic-details',
         element: <BasicDetails />
+    },
+    {
+    path: '/simulation',
+    element: <Simulation />
     },
 
     {

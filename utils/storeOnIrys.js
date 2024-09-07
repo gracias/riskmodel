@@ -13,8 +13,8 @@ export const storeOnIrys =  async (cipherText, dataToEncryptHash, owner, nominee
 	const tags = [
         { name: "Content-Type", value: "application/json" },
         { name: "application-id", value: "nebula"},
-        { name: "owner", value: owner },
-        { name: "nominee", value: nominee }
+        // { name: "owner", value: owner },
+        // { name: "nominee", value: nominee }
     ];
 
 	let receipt;

@@ -134,3 +134,4 @@ dist
 
 lit_storage.db
 sequelize.sqlite
+testencrypt.txt
