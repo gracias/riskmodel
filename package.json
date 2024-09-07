@@ -12,6 +12,8 @@
 	"type": "module",
 	"dependencies": {
 		"@irys/sdk": "^0.0.4",
+		"@irys/upload": "^0.0.2",
+		"@irys/upload-ethereum": "^0.0.2",
 		"@lit-protocol/lit-node-client": "6.4.0",
 		"@sequelize/sqlite3": "^7.0.0-alpha.41",
 		"cors": "^2.8.5",

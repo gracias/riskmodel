@@ -3,7 +3,7 @@ import { getAccessControlConditions } from "./accesscontrols.js";
 import { getIrys  } from "./irys.js";
 
 export const storeOnIrys =  async (cipherText, dataToEncryptHash, owner, nominee) => {
-	const irys = await getIrys();
+	const irys =  getIrys();
 
 	const dataToUpload = {
 		cipherText: cipherText,

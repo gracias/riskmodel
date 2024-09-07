@@ -6,7 +6,7 @@ import { retrieveFromIrys } from "./retrieveFromIrys.js";
 import { storeOnIrys } from "./storeOnIrys.js";
 import { getLitNodeClient } from "./litnode.js";
 import { getSessionSig } from "./sessionsig.js";
-import { INSURANCE_DATA } from "./insurance.js";
+
 
 dotenv.config();
 
@@ -43,20 +43,29 @@ const invokeAction = async (ciphertext, dataToEncryptHash, accessControlConditio
     try {
         const litNodeClient = await getLitNodeClient();
         const sessionSigs = await getSessionSig();
-        const res = await litNodeClient.executeJs({
-            ipfsId: process.env.LIT_ACTION_IPFS,
-            sessionSigs,
-            jsParams: {
-                accessControlConditions,
-                ciphertext,
-                dataToEncryptHash,
-                portSize, 
-                simulations, 
-                percentile
-            }
-        });
+      
 
-        return res
+        try {
+
+            const res = await litNodeClient.executeJs({
+                ipfsId: process.env.LIT_ACTION_IPFS,
+                sessionSigs,
+                jsParams: {
+                    accessControlConditions,
+                    ciphertext,
+                    dataToEncryptHash,
+                    portSize, 
+                    simulations, 
+                    percentile
+                }
+            });
+    
+            return res
+
+        }catch(e) {
+            console.log("Errr action: ", e)
+        }
+     
     } catch(err) {
         console.log("Error: ", err)
     }
@@ -65,13 +74,16 @@ const invokeAction = async (ciphertext, dataToEncryptHash, accessControlConditio
 export const executeAction = async (portSize, simulations, percentile) => {
     const encryptedDataID = RESOURCE_CID
 
+ 
+
     const [cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions] = await retrieveFromIrys(
 		encryptedDataID,
 	);
    
-    
+
 
     const res = await invokeAction(cipherTextRetrieved, dataToEncryptHashRetrieved, accessControlConditions, portSize, simulations, percentile)
+    // console.log("response: ", res)
     if (res && res.response) {
         const result = JSON.parse(res.response)
         return result
@@ -79,6 +91,13 @@ export const executeAction = async (portSize, simulations, percentile) => {
     
 }
 
+// const run = async () => {
+//     const res = await executeAction(200, 50000, 99.5)
+//     console.log("result ", res)
+// }
+
+
+// run()
 
 
 

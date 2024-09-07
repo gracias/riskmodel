@@ -12,16 +12,19 @@ dotenv.config();
  * token: from environment variable irysToken
  * @returns irys instance
  */
-export const getIrys = async () => {
-	const url = process.env.irysUrl;
-	const providerUrl = process.env.irysProviderUrl;
-	const token = process.env.irysToken;
 
-	const irys = new Irys({
-		url, // URL of the node you want to connect to
-		token, // Token used for payment
-		key: process.env.PRIVATE_KEY, // Private key
-		config: { providerUrl }, // only required when using Devnet
-	});
+const url = process.env.irysUrl;
+const providerUrl = process.env.irysProviderUrl;
+const token = process.env.irysToken;
+
+const irys = new Irys({
+	url, // URL of the node you want to connect to
+	token, // Token used for payment
+	key: process.env.PRIVATE_KEY, // Private key
+	config: { providerUrl }, // only required when using Devnet
+});
+
+export const getIrys = () => {
+	
 	return irys;
 }

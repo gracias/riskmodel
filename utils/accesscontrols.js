@@ -10,6 +10,7 @@ dotenv.config();
  */
 export const getAccessControlConditions = () => {
 	// Lit action with ipfs id can decrypt
+    console.log("action:", process.env.LIT_ACTION_IPFS)
 	const accessControlConditions = [
 		{
             contractAddress: '',

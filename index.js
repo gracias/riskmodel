@@ -34,6 +34,9 @@ app.post("/simulate", async (req, res) => {
     try {
         
         const result = await executeAction(Number(portSize), Number(simulations), Number(percentile))
+        if (!result) {
+            res.status(400).json({ success: false })
+        }
         res.json({success: true, result })
     } catch(e) {
         res.json({

@@ -1,4 +1,4 @@
-// QmTtyEnaJxW9DxobCGjnrqs7d2pZZPtbJA72QZzbpzM9CS
+
 const go = async () => {
     let data = await Lit.Actions.decryptAndCombine({
         accessControlConditions,
@@ -14,8 +14,42 @@ const go = async () => {
     function simulate(data) {
 
         // params passed : portSize, simulations, percentile
+        const mortalityTable = [
+            { age: 20, deaths: 0.00052 },
+            { age: 21, deaths: 0.00044 },
+            { age: 22, deaths: 0.00042 },
+            { age: 23, deaths: 0.00036 },
+            { age: 24, deaths: 0.0003 },
+            { age: 25, deaths: 0.00026 },
+            { age: 26, deaths: 0.00023 },
+            { age: 27, deaths: 0.0002 },
+            { age: 28, deaths: 0.00017 },
+            { age: 29, deaths: 0.00016 },
+            { age: 30, deaths: 0.00015 },
+            { age: 31, deaths: 0.00013 },
+            { age: 32, deaths: 0.00013 },
+            { age: 33, deaths: 0.00013 },
+            { age: 34, deaths: 0.00014 },
+            { age: 35, deaths: 0.00014 },
+            { age: 36, deaths: 0.00014 },
+            { age: 37, deaths: 0.00014 },
+            { age: 38, deaths: 0.00014 },
+            { age: 39, deaths: 0.00014 },
+            { age: 40, deaths: 0.00015 },
+            { age: 41, deaths: 0.00017 },
+            { age: 42, deaths: 0.0002 },
+            { age: 43, deaths: 0.00023 },
+            { age: 44, deaths: 0.00027 },
+            { age: 45, deaths: 0.00031 },
+            { age: 46, deaths: 0.00035 },
+            { age: 47, deaths: 0.00039 },
+            { age: 48, deaths: 0.00042 },
+            { age: 49, deaths: 0.00044 },
+            { age: 50, deaths: 0.00045 }
+        ];
 
         const Pi = Math.PI;
+        const psLoading =  0.000569003265265433;
 
 
         // Variables to manage the model and simulation
@@ -44,12 +78,25 @@ const go = async () => {
         let profit = [];            // Array to store the profit for each simulation
         let averagePVProfit;    // Average present value of profit over all simulations
         let totalPVExpectedProfit; // Total present value of expected profit
+        let policies; // data set
+        let sumAssured = []
+
+        function buildSumAssured () {
+            sumAssured = policies.map(policy => {
+                return Number(policy['sum_assured'])
+            })
+        }
+
+        function getQx(age) {
+            const record = mortalityTable.find(entry => entry.age == age);
+            return record ? record.deaths : -1;
+        }
 
         function initialiseVariables(data) {
 
 
             // Replace these with actual input data or user inputs
-
+            policies = JSON.parse(data.insuranceData),
             claimRate = data.claimRate;
             aveSumInsured = data.aveSumInsured;
             stDevSumInsured = data.stDevSumInsured;
@@ -68,6 +115,31 @@ const go = async () => {
 
 
         }
+
+        function calculateStdevP() {
+            const mean = sumAssured.reduce((sum, value) => sum + value, 0) / sumAssured.length;
+        
+            const squaredDiffs = sumAssured.map(value => Math.pow(value - mean, 2));
+        
+            const avgSquaredDiff = squaredDiffs.reduce((sum, value) => sum + value, 0) / sumAssured.length;
+        
+            stDevSumInsured =  Math.round(Math.sqrt(avgSquaredDiff));
+        }
+
+        function calculateClaimRateAndAvgSumInsured() {
+            let sum = 0, sumProduct = 0;
+            for(let i = 0; i < portSize; i++) {
+                const qx = getQx(Number(policies[i]['age']))
+                if (qx != -1) {
+                    sumProduct += Number(policies[i]['sum_assured']) * qx
+                }
+                
+                sum += Number(policies[i]['sum_assured'])
+            }
+            claimRate = ((sumProduct / sum) * 1000).toFixed(2)
+            aveSumInsured = Math.round(sum / portSize)
+        }
+        
 
 
         // Poisson distribution function to generate random number of claims
@@ -182,6 +254,8 @@ const go = async () => {
 
         }
 
+      
+
         function calculatePercentile(arr, percentile) {
             if (!Array.isArray(arr) || arr.length === 0) {
                 throw new Error('Input must be a non-empty array');
@@ -212,8 +286,20 @@ const go = async () => {
             return Math.round(lowerValue + (upperValue - lowerValue) * (index - lowerIndex));
         }
 
+        function totalPremiumReceived() {
+            let grossPremium = (claimRate * (1 + netPremMargins) + perMillePremLoad) / (1 - grossPremMargins) * (1 + psLoading)
+            
+            let totalSumAssured = sumAssured.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+            let totalPremiumReceived = (totalSumAssured * grossPremium)/1000;
+        
+            return totalPremiumReceived;
+        }
+
 
         initialiseVariables(data);  // Initialize the variables with values
+        calculateStdevP();
+        calculateClaimRateAndAvgSumInsured();
+        buildSumAssured()
         calculatePremium();     // Calculate the initial premium
 
         // Loop until the result stabilizes (converges)
@@ -228,20 +314,27 @@ const go = async () => {
 
         }
 
+        const totalPremium = totalPremiumReceived();
+        const lossData = claimsCost.map(value => value > totalPremium ? value - totalPremium : 0);
+        console.log(totalPremium)
         const percentileClaims = calculatePercentile(numberOfClaims, percentile)
         const medianClaims = calculatePercentile(numberOfClaims, 50)
         const percentileClaimsCost = calculatePercentile(claimsCost, percentile)
-        const percentileProfitShare = calculatePercentile(profitShare, percentile)
         const medianClaimsCost = calculatePercentile(claimsCost, 50)
+        const percentileProfitShare = calculatePercentile(profitShare, percentile)
         const medianProfitShare = calculatePercentile(profitShare, 50)
+        const percentileLoss = calculatePercentile(lossData, percentile)
+        const medianLoss = calculatePercentile(lossData, 50)
 
         return {
             percentileClaims,
-            medianClaims,
             percentileClaimsCost,
             percentileProfitShare,
+            percentileLoss,
+            medianClaims,
             medianClaimsCost,
-            medianProfitShare
+            medianProfitShare,
+            medianLoss
         }
 
 
@@ -249,9 +342,11 @@ const go = async () => {
     }
 
     const result = simulate(data)
+    console.log(result)
     const actionResult = JSON.stringify(result)
 
     Lit.Actions.setResponse({ response: JSON.stringify(actionResult) });
 }
 
 go();
+
