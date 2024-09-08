@@ -1,6 +1,6 @@
 
 const go = async () => {
-    let data = await Lit.Actions.decryptAndCombine({
+    let decryptedData = await Lit.Actions.decryptAndCombine({
         accessControlConditions,
         ciphertext,
         dataToEncryptHash,
@@ -8,7 +8,7 @@ const go = async () => {
         chain: 'ethereum',
     });
 
-    data = JSON.parse(data)
+    decryptedData = JSON.parse(decryptedData)
 
     // Function to simulate participation and profit-sharing process
     function simulate(data) {
@@ -96,7 +96,7 @@ const go = async () => {
 
 
             // Replace these with actual input data or user inputs
-            policies = JSON.parse(data.insuranceData),
+            policies = data.insuranceData,
             claimRate = data.claimRate;
             aveSumInsured = data.aveSumInsured;
             stDevSumInsured = data.stDevSumInsured;
@@ -297,9 +297,9 @@ const go = async () => {
 
 
         initialiseVariables(data);  // Initialize the variables with values
+        buildSumAssured()
         calculateStdevP();
         calculateClaimRateAndAvgSumInsured();
-        buildSumAssured()
         calculatePremium();     // Calculate the initial premium
 
         // Loop until the result stabilizes (converges)
@@ -341,7 +341,7 @@ const go = async () => {
 
     }
 
-    const result = simulate(data)
+    const result = simulate(decryptedData)
     console.log(result)
     const actionResult = JSON.stringify(result)
 

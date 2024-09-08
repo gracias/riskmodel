@@ -1,15 +1,27 @@
 import { Uploader } from "@irys/upload";
 import { Ethereum  } from "@irys/upload-ethereum";
  
-const getIrysUploader = async () => {
+export const getIrysUploader = async () => {
   const irysUploader = await Uploader(Ethereum ).withWallet(process.env.PRIVATE_KEY);
   return irysUploader;
 };
 
-export const funNode = async (price) => {
+export const fundNode = async (price) => {
     const irys = await Uploader(Ethereum).withWallet(process.env.PRIVATE_KEY);
     const res = await irys.fund(irys.utils.toAtomic(price))
         console.log("fund res", res)
+}
+
+export const getPrice = async (numBytes) => {
+  const irys = await Uploader(Ethereum).withWallet(process.env.PRIVATE_KEY);
+  const priceAtomic = await irys.getPrice(numBytes);
+  console.log("Price: ", priceAtomic)
+}
+
+export const getNodeBalance = async () => {
+  const irys = await Uploader(Ethereum).withWallet(process.env.PRIVATE_KEY);
+  const res = await irys.getBalance();
+      console.log("bal res", res)
 }
 export const fundAndStore = async (obj) => {
     try {

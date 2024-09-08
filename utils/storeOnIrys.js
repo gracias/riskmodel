@@ -1,9 +1,10 @@
 
 import { getAccessControlConditions } from "./accesscontrols.js";
 import { getIrys  } from "./irys.js";
+import { getIrysUploader } from "./irysUploader.js";
 
 export const storeOnIrys =  async (cipherText, dataToEncryptHash, owner, nominee) => {
-	const irys =  getIrys();
+	const irys =  await getIrysUploader()
 
 	const dataToUpload = {
 		cipherText: cipherText,
@@ -16,6 +17,9 @@ export const storeOnIrys =  async (cipherText, dataToEncryptHash, owner, nominee
         // { name: "owner", value: owner },
         // { name: "nominee", value: nominee }
     ];
+
+	const numBytes = Buffer.byteLength(JSON.stringify(dataToUpload))
+    console.log("Size to store: ", numBytes)
 
 	let receipt;
 	try {

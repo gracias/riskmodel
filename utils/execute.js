@@ -22,6 +22,7 @@ export const executeEncryptionAndStore = async (messageToEncrypt) => {
 	const encryptedDataID = await storeOnIrys(cipherText, dataToEncryptHash);
 
 	console.log(`Data stored at https://gateway.irys.xyz/${encryptedDataID}`);
+    return encryptedDataID
 
 }
 
@@ -91,13 +92,7 @@ export const executeAction = async (portSize, simulations, percentile) => {
     
 }
 
-// const run = async () => {
-//     const res = await executeAction(200, 50000, 99.5)
-//     console.log("result ", res)
-// }
 
-
-// run()
 
 
 

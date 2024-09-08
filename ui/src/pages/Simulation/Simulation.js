@@ -29,13 +29,18 @@ const Simulation = () => {
         if(!portSize || !simulations || !percentile) {
             return;
         }
+        if(!Number(portSize) || !Number(simulations) || !Number(percentile)) {
+            return;
+        }
         try {
             const res = await axios.post("http://localhost:3001/simulate", {
-                simulations, portSize, percentile
+                simulations: Number(simulations), portSize: Number(portSize), percentile: Number(percentile)
             })
-           
-            if (res && res.data & res.data.result) {
+           console.log(res.data)
+           console.log(res.data.result)
+            if (res && res.data && res.data.result) {
                 const data = JSON.parse(res.data.result)
+                console.log(data)
                 setResult(data)
                 setPortfolioNumbers([...portfolioNumbers, portSize])
                 setPercetileLosses([...percentileLosses, result.percentileLoss])
